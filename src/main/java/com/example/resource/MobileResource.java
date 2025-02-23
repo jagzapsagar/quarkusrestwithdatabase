@@ -78,6 +78,7 @@ public class MobileResource {
 			mobile.setId(m.getId());
 			mobile.setName(m.getName());
 			mobile.setPrice(m.getPrice());
+			// No explicit persist needed, Panache will automatically update it
 			return Response.ok(mobile).build();
 			// return Response.ok(m).build();
 		} else {
