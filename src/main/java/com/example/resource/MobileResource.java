@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.jboss.logging.Logger;
+
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
@@ -23,6 +25,9 @@ public class MobileResource {
 
 	@Inject
 	PersonRepository repo;
+	
+	@Inject
+	Logger logger;
 
 	List<Mobile> list = new ArrayList<>();
 
@@ -30,6 +35,7 @@ public class MobileResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get() {
 		// return Response.ok(list).build();
+		logger.info("getting all list........");
 		return Response.ok(repo.listAll()).build();
 	}
 
